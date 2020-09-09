@@ -38,4 +38,5 @@ if __name__ == "__main__":
           author='Hicham Janati',
           author_email='hicham.janati100@gmail.com',
           license='MIT',
+          zip_safe=False
           )
