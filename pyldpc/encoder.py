@@ -62,3 +62,25 @@ def encode(tG, v, snr, seed=None):
     y = x + e
 
     return y
+
+
+def encode_plain(tG, v):
+    """Encode a binary message
+
+    Parameters
+    ----------
+    tG: array or scipy.sparse.csr_matrix (m, k). Transposed coding matrix
+    obtained from `pyldpc.make_ldpc`.
+
+    v: array (k, ) or (k, n_messages) binary messages to be encoded.
+
+    Returns
+    -------
+    y: array (n,) or (n, n_messages) coded messages (with no noise)
+
+    """
+    n, k = tG.shape
+
+    d = utils.binaryproduct(tG, v) # Create result (binary vector)
+    d = -2 * d + 1                 # switch to -1, +1 instead of 0, 1
+    return d

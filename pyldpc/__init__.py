@@ -1,4 +1,4 @@
-from .encoder import encode_random_message, encode
+from .encoder import encode_random_message, encode, encode_plain
 from .decoder import decode, get_message
 from .code import (parity_check_matrix, coding_matrix_systematic,
                    make_ldpc, coding_matrix)
